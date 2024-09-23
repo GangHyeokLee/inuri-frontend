@@ -1,7 +1,7 @@
 import {Child} from "@/type";
 import {Button, Modal} from "react-bootstrap";
 
-export default function ({show, handleClose, child}: { show: boolean, handleClose: () => void, child: Child }) {
+export default function ChildDetailModal ({show, handleClose, child}: { show: boolean, handleClose: () => void, child: Child }) {
     return (
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
