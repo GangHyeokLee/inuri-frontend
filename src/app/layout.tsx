@@ -1,6 +1,7 @@
 import "./globals.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@/styles/scss/bootstrap.scss';
+import '@/styles/style.css';
 
 import Navbar from "@/components/navbar";
 
