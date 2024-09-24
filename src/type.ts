@@ -6,20 +6,27 @@ export interface News {
     ncate: string;
     nkind: number;
     nhit: number;
-    nimg1: string;
+    images: string[];
 }
 
 export interface Customer {
-    cid: number;
-    cdate: Date;          // LocalDateTime can be handled as a string in ISO format
+    cid: number; // Optional since it's auto-generated
+    cdate: Date; // Use Date for `LocalDateTime`
+
     username: string;
-    password: string;
     enabled: boolean;
     role: string;
+
     name: string;
-    donation: Donation[];   // Assuming Donation is another interface
-    answers: Answer[];      // Assuming Answer is another interface
-    questions: Question[];  // Assuming Question is another interface
+
+    postcode: string;
+    caddr: string;
+    ctel: string;
+
+    // Exclude from serialization (similar to @ToString.Exclude)
+    donation: Donation[];
+    answers: Answer[];
+    questions: Question[];
 }
 
 export interface Child {
@@ -49,7 +56,7 @@ export interface Answer {
     adate: Date;         // LocalDateTime handled as a string
     content: string;
     aauthor: Customer;     // Assuming Customer is another interface
-    question: Question;    // Assuming Question is another interface
+    questionId: number;
 }
 
 export interface Question {
@@ -59,4 +66,15 @@ export interface Question {
     content: string;
     qauthor: Customer;     // Assuming Customer is another interface
     answers: Answer[];     // Assuming Answer is another interface
+}
+
+export const category={
+    "1": "공지사항",
+    "2": "기업소식",
+    "3": "후원금 사용내역",
+    "4": "진행프로젝트",
+    "5": "피후원자 추가안내",
+    "6": "명예후원자",
+    "7": "인재 채용",
+    "8": "보도자료"
 }

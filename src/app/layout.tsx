@@ -1,22 +1,23 @@
 import "./globals.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '@/styles/scss/bootstrap.scss';
-import '@/styles/style.css';
-
 import Navbar from "@/components/navbar";
+import React from "react";
 
-export default function RootLayout({
-                                       children,
-                                   }: Readonly<{
-    children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
         <html lang="en">
+        <head>
+            <link
+                rel="stylesheet"
+                href="https://unpkg.com/react-quill@1.3.3/dist/quill.snow.css"
+            />
+        </head>
         <body>
-        <header>
-            <Navbar/>
+        <header className="w-full flex justify-center">
+            <Navbar />
         </header>
-        {children}
+        <main className="flex justify-center items-center w-full mt-48">
+            {children}
+        </main>
         </body>
         </html>
     );

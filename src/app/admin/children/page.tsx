@@ -2,75 +2,70 @@
 
 import {useState} from "react";
 import {Child} from "@/type";
-import {Button, Modal} from "react-bootstrap";
-import ChildDetailModal from "@/components/ChildDetailModal";
+import {Table, TableBody, TableHead, TableHeader, TableRow} from "@/components/ui/table";
+import {
+    Pagination,
+    PaginationContent, PaginationEllipsis,
+    PaginationItem,
+    PaginationLink, PaginationNext,
+    PaginationPrevious
+} from "@/components/ui/pagination";
+import AddChildDialog from "@/components/admin/child/AddChildDialog";
+import ChildDetailDialog from "@/components/admin/child/ChildDetailDialog";
+import {MockChildren} from "@/mock";
 
 export default function ChildrenList() {
 
-    const [children, setChildren] = useState<Child[]>([{
-        chid: 1,
-        chdob: new Date(),
-        chname: "test",
-        chdate: new Date(),
-        chdesc: "test",
-        chgender: "male",
-        chimg: "1rtr",
-        chlocation: "test",
-        donations: [],
-    },
-        {
-            chid: 2,
-            chdob: new Date(),
-            chname: "test2",
-            chdate: new Date(),
-            chdesc: "test",
-            chgender: "female",
-            chimg: "1rtr",
-            chlocation: "test",
-            donations: [],
-        }]);
-    const [child, setChild] = useState<Child|null>(null);
-    const [show, setShow] = useState(false);
-    const handleShow = () => setShow(true);
-    const handleClose = () => setShow(false);
+    const [children, setChildren] = useState<Child[]>(MockChildren);
 
     return (
-        <div className="col-lg-9">
-            <div className="container-fluid pt-4 px-4">
-                <div className="bg-light text-center rounded p-4">
-                    <div className="d-flex align-items-center justify-content-between mb-4">
-                        <h6 className="mb-0">후원 아동 목록</h6>
-                    </div>
-                    <div className="table-responsive">
-                        <table className="table text-start align-middle table-bordered table-hover mb-0">
-                            <thead>
-                            <tr className="text-dark">
-                                <th scope="col">번호</th>
-                                <th scope="col">이름</th>
-                                <th scope="col">생년월일</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {
-                                children.map((child, idx) => (
-                                    <tr key={child.chid} onClick={()=>{
-                                        setChild(child)
-                                        setShow(true)
-                                    }}>
-                                        <td>{idx + 1}</td>
-                                        <td>{child.chname}</td>
-                                        <td>{child.chdob.toLocaleDateString()}</td>
-                                    </tr>
-                                ))
-                            }
-
-                            </tbody>
-                        </table>
-                    </div>
+        <div className="w-full">
+            <div className="bg-gray-100 text-center rounded p-4 mt-10">
+                <div className="flex items-center justify-between mb-4">
+                    <h3 className="mb-0">후원 아동 관리</h3>
+                    <AddChildDialog/>
                 </div>
+                <div className="overflow-x-auto">
+                    <Table>
+                        <TableHeader>
+                            <TableRow className="text-dark">
+                                <TableHead>번호</TableHead>
+                                <TableHead>이름</TableHead>
+                                <TableHead>생일</TableHead>
+                            </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                            {children.map((child, idx) => (
+                                <ChildDetailDialog key={child.chid} child={child} idx={idx} />
+                            ))}
+                        </TableBody>
+                    </Table>
+                </div>
+                <Pagination>
+                    <PaginationContent>
+                        <PaginationItem>
+                            <PaginationPrevious href="#"/>
+                        </PaginationItem>
+                        <PaginationItem>
+                            <PaginationLink href="#">1</PaginationLink>
+                        </PaginationItem>
+                        <PaginationItem>
+                            <PaginationLink href="#" isActive>
+                                2
+                            </PaginationLink>
+                        </PaginationItem>
+                        <PaginationItem>
+                            <PaginationLink href="#">3</PaginationLink>
+                        </PaginationItem>
+                        <PaginationItem>
+                            <PaginationEllipsis/>
+                        </PaginationItem>
+                        <PaginationItem>
+                            <PaginationNext href="#"/>
+                        </PaginationItem>
+                    </PaginationContent>
+                </Pagination>
             </div>
-
-            {child && <ChildDetailModal show={show} handleClose={handleClose} child={child!}/>}
         </div>
     )
 }

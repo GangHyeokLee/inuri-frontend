@@ -2,6 +2,17 @@
 
 import {useState} from "react";
 import {News} from "@/type";
+import {FaChartBar, FaChartLine, FaHandsHelping} from "react-icons/fa";
+import DashboardCard from "@/components/admin/DashboardCard";
+import {FaHandsHoldingChild} from "react-icons/fa6";
+import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@/components/ui/table";
+import {
+    Pagination,
+    PaginationContent, PaginationEllipsis,
+    PaginationItem,
+    PaginationLink, PaginationNext,
+    PaginationPrevious
+} from "@/components/ui/pagination";
 
 export default function AdminDashboard() {
     const [todayDonation, setTodayDonation] = useState(0);
@@ -11,101 +22,78 @@ export default function AdminDashboard() {
     const [newsList, setNewsList] = useState<News[]>([]);
 
     return (
-        <div className="col-lg-9">
-            <div className="row g-4 justify-content-center">
-                <div className="container-fluid pt-4 px-4">
-                    <div className="col g-4">
-                        <div className="row g-4 mb-5">
-                            <div className="col-6">
-                                <div className="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                                    <i className="fa fa-chart-line fa-3x text-primary"></i>
-                                    <div className="ms-3">
-                                        <p className="mb-2">오늘 후원금</p>
-                                        <h6 className="mb-0">{todayDonation} 원</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-6">
-                                <div className="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                                    <i className="fa fa-chart-bar fa-3x text-primary"></i>
-                                    <div className="ms-3">
-                                        <p className="mb-2">누적 후원금</p>
-                                        <h6 className="mb-0">{donationSum} 원</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="row g-4">
-                            <div className="col-6">
-                                <div className="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                                    <i className="fa fa-chart-area fa-3x text-primary"></i>
-                                    <div className="ms-3">
-                                        <p className="mb-2">후원 아동 수</p>
-                                        <h6 className="mb-0">{childrenCount} 명</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-6">
-                                <div className="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                                    <i className="fa fa-chart-pie fa-3x text-primary"></i>
-                                    <div className="ms-3">
-                                        <p className="mb-2">후원자</p>
-                                        <h6 className="mb-0">{patronsCount} 명</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <div className="w-full">
+            <div className="flex flex-col gap-5">
+                <div className="flex gap-5">
+                    <DashboardCard title={"오늘 후원금"} count={todayDonation + " 원"}>
+                        <FaChartLine className="text-mainTheme text-6xl"/>
+                    </DashboardCard>
+                    <DashboardCard title={"누적 후원금"} count={donationSum + " 원"}>
+                        <FaChartBar className="text-mainTheme text-6xl"/>
+                    </DashboardCard>
+                </div>
+                <div className="flex gap-5">
+                    <DashboardCard title={"후원 아동 수"} count={childrenCount + " 명"}>
+                        <FaHandsHoldingChild className="text-mainTheme text-6xl"/>
+                    </DashboardCard>
+                    <DashboardCard title={"후원자"} count={patronsCount + " 명"}>
+                        <FaHandsHelping className="text-mainTheme text-6xl"/>
+                    </DashboardCard>
                 </div>
             </div>
-            <div className="container-fluid pt-4 px-4">
-                <div className="bg-light text-center rounded p-4">
-                    <div className="d-flex align-items-center justify-content-between mb-4">
-                        <h6 className="mb-0">공지사항 관리</h6>
-                        <a href="/news/notice/create">글 작성</a>
-                    </div>
-                    <div className="table-responsive">
-                        <table className="table text-start align-middle table-bordered table-hover mb-0">
-                            <thead>
-                            <tr className="text-dark">
-                                <th scope="col"></th>
-                                <th scope="col">제목</th>
-                                <th scope="col">카테고리</th>
-                                <th scope="col">작성일</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {newsList.map((news) => (
-                                <tr key={news.nid}>
-                                    <td><input className="form-check-input" type="checkbox"/></td>
-                                    <td>{news.ntitle}</td>
-                                    <td>{news.ncate}</td>
-                                    <td>{news.ndate.toLocaleDateString()}</td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
+            <div className="bg-gray-100 text-center rounded p-4 mt-10">
+                <div className="flex items-center justify-between mb-4">
+                    <h3 className="mb-0">공지사항 관리</h3>
+                    <a href="/news/notice/create" className="text-blue-500">글 작성</a>
                 </div>
-                <nav aria-label="Page navigation example" className="mt-5">
-                    <ul className="pagination justify-content-center">
-                    <li className="page-item">
-                                <a className="page-link" href="#" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                    <span className="sr-only">Previous</span>
-                                </a>
-                            </li>
-                            <li className="page-item"><a className="page-link" href="#">1</a></li>
-                            <li className="page-item"><a className="page-link" href="#">2</a></li>
-                            <li className="page-item"><a className="page-link" href="#">3</a></li>
-                            <li className="page-item">
-                                <a className="page-link" href="#" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                    <span className="sr-only">Next</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
+                <div className="overflow-x-auto">
+                    <Table>
+                        <TableHeader>
+                        <TableRow className="text-dark">
+                            <TableHead></TableHead>
+                            <TableHead>제목</TableHead>
+                            <TableHead>카테고리</TableHead>
+                            <TableHead>작성일</TableHead>
+                        </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                        {newsList.map((news) => (
+                            <TableRow className="hover:bg-gray-200" key={news.nid}>
+                                <TableCell className="border border-gray-300">
+                                    <input className="form-check-input" type="checkbox"/>
+                                </TableCell>
+                                <TableCell className="border border-gray-300">{news.ntitle}</TableCell>
+                                <TableCell className="border border-gray-300">{news.ncate}</TableCell>
+                                <TableCell className="border border-gray-300">{news.ndate.toLocaleDateString()}</TableCell>
+                            </TableRow>
+                        ))}
+                        </TableBody>
+                    </Table>
                 </div>
+                <Pagination>
+                    <PaginationContent>
+                        <PaginationItem>
+                            <PaginationPrevious href="#" />
+                        </PaginationItem>
+                        <PaginationItem>
+                            <PaginationLink href="#">1</PaginationLink>
+                        </PaginationItem>
+                        <PaginationItem>
+                            <PaginationLink href="#" isActive>
+                                2
+                            </PaginationLink>
+                        </PaginationItem>
+                        <PaginationItem>
+                            <PaginationLink href="#">3</PaginationLink>
+                        </PaginationItem>
+                        <PaginationItem>
+                            <PaginationEllipsis />
+                        </PaginationItem>
+                        <PaginationItem>
+                            <PaginationNext href="#" />
+                        </PaginationItem>
+                    </PaginationContent>
+                </Pagination>
             </div>
         </div>
     );
