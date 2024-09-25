@@ -1,6 +1,7 @@
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import React from "react";
+import Script from "next/script";
 
 export default function RootLayout({children}: Readonly<{ children: React.ReactNode }>) {
     return (
@@ -10,6 +11,7 @@ export default function RootLayout({children}: Readonly<{ children: React.ReactN
                 rel="stylesheet"
                 href="https://unpkg.com/react-quill@1.3.3/dist/quill.snow.css"
             />
+            <Script src="https://cdn.iamport.kr/v1/iamport.js"></Script>
         </head>
         <body>
         <header className="w-full flex justify-center">

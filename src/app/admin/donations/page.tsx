@@ -1,13 +1,9 @@
-"use client"
-
-import {useState} from "react";
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@/components/ui/table";
-import {Donation} from "@/type";
 import {MockDonation} from "@/mock";
 
 export default function Donations() {
 
-    const [donations, setDonations] = useState<Donation[]>(MockDonation);
+    const donations = [...MockDonation];
     return (
         <div className="w-full">
             <div className="bg-gray-100 text-center rounded p-4 mt-10">

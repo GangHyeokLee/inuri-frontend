@@ -1,3 +1,6 @@
+"use client"
+// 쿠키 유무에 따라 버튼 모양 달라야함
+
 import {IoPersonSharp} from "react-icons/io5";
 import {
     NavigationMenu,

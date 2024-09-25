@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/dialog";
 
 import {TableCell, TableRow} from "@/components/ui/table";
-import { Customer} from "@/type";
+import { Customer} from "@/types/type";
 
 export default function PatronDetailDialog({patron}:{patron: Customer}) {
     return (

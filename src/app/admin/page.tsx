@@ -1,7 +1,3 @@
-"use client"
-
-import {useState} from "react";
-import {News} from "@/type";
 import {FaChartBar, FaChartLine, FaHandsHelping} from "react-icons/fa";
 import DashboardCard from "@/components/admin/DashboardCard";
 import {FaHandsHoldingChild} from "react-icons/fa6";
@@ -13,13 +9,14 @@ import {
     PaginationLink, PaginationNext,
     PaginationPrevious
 } from "@/components/ui/pagination";
+import {MockChildren, MockDonation, MockNews, MockPatron} from "@/mock";
 
 export default function AdminDashboard() {
-    const [todayDonation, setTodayDonation] = useState(0);
-    const [donationSum, setDonationSum] = useState(0);
-    const [patronsCount, setPatronsCount] = useState(0);
-    const [childrenCount, setChildrenCount] = useState(0);
-    const [newsList, setNewsList] = useState<News[]>([]);
+    const todayDonation = MockDonation.filter((donation) => donation.ddate === new Date()).reduce((prev, curr) => prev + curr.donationAmount, 0);
+    const donationSum = MockDonation.reduce((prev, curr) => prev + curr.donationAmount, 0);
+    const patronsCount = MockPatron.length;
+    const childrenCount = MockChildren.length;
+    const newsList = [...MockNews];
 
     return (
         <div className="w-full">
@@ -49,31 +46,27 @@ export default function AdminDashboard() {
                 <div className="overflow-x-auto">
                     <Table>
                         <TableHeader>
-                        <TableRow className="text-dark">
-                            <TableHead></TableHead>
-                            <TableHead>제목</TableHead>
-                            <TableHead>카테고리</TableHead>
-                            <TableHead>작성일</TableHead>
-                        </TableRow>
+                            <TableRow className="text-dark text-center">
+                                <TableHead className="text-center">제목</TableHead>
+                                <TableHead className="text-center">카테고리</TableHead>
+                                <TableHead className="text-center">작성일</TableHead>
+                            </TableRow>
                         </TableHeader>
                         <TableBody>
-                        {newsList.map((news) => (
-                            <TableRow className="hover:bg-gray-200" key={news.nid}>
-                                <TableCell className="border border-gray-300">
-                                    <input className="form-check-input" type="checkbox"/>
-                                </TableCell>
-                                <TableCell className="border border-gray-300">{news.ntitle}</TableCell>
-                                <TableCell className="border border-gray-300">{news.ncate}</TableCell>
-                                <TableCell className="border border-gray-300">{news.ndate.toLocaleDateString()}</TableCell>
-                            </TableRow>
-                        ))}
+                            {newsList.map((news) => (
+                                <TableRow className="hover:bg-gray-200" key={news.nid}>
+                                    <TableCell>{news.ntitle}</TableCell>
+                                    <TableCell>{news.ncate}</TableCell>
+                                    <TableCell>{news.ndate.toLocaleDateString()}</TableCell>
+                                </TableRow>
+                            ))}
                         </TableBody>
                     </Table>
                 </div>
                 <Pagination>
                     <PaginationContent>
                         <PaginationItem>
-                            <PaginationPrevious href="#" />
+                            <PaginationPrevious href="#"/>
                         </PaginationItem>
                         <PaginationItem>
                             <PaginationLink href="#">1</PaginationLink>
@@ -87,10 +80,10 @@ export default function AdminDashboard() {
                             <PaginationLink href="#">3</PaginationLink>
                         </PaginationItem>
                         <PaginationItem>
-                            <PaginationEllipsis />
+                            <PaginationEllipsis/>
                         </PaginationItem>
                         <PaginationItem>
-                            <PaginationNext href="#" />
+                            <PaginationNext href="#"/>
                         </PaginationItem>
                     </PaginationContent>
                 </Pagination>

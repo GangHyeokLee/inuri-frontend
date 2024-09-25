@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/dialog";
 
 import {TableCell, TableRow} from "@/components/ui/table";
-import {Child} from "@/type";
+import {Child} from "@/types/type";
 
 export default function ChildDetailDialog({child, idx}:{child: Child, idx: number}) {
     return (

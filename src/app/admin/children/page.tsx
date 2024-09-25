@@ -1,7 +1,3 @@
-"use client"
-
-import {useState} from "react";
-import {Child} from "@/type";
 import {Table, TableBody, TableHead, TableHeader, TableRow} from "@/components/ui/table";
 import {
     Pagination,
@@ -16,7 +12,7 @@ import {MockChildren} from "@/mock";
 
 export default function ChildrenList() {
 
-    const [children, setChildren] = useState<Child[]>(MockChildren);
+    const children = [...MockChildren];
 
     return (
         <div className="w-full">
@@ -36,7 +32,7 @@ export default function ChildrenList() {
                         </TableHeader>
                         <TableBody>
                             {children.map((child, idx) => (
-                                <ChildDetailDialog key={child.chid} child={child} idx={idx} />
+                                <ChildDetailDialog key={child.chid} child={child} idx={idx}/>
                             ))}
                         </TableBody>
                     </Table>

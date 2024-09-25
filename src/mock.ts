@@ -1,4 +1,4 @@
-import {Child, Customer, Donation} from "@/type";
+import {Child, Customer, Donation, News} from "@/types/type";
 
 export const MockChildren: Child[] = [{
     chid: 1,
@@ -46,4 +46,15 @@ export const MockDonation: Donation[] = [{
     donationAmount: 100000,
     donationMethod: "일시 후원",
     donationPeriod: 0
+}]
+
+export const MockNews: News[] = [{
+    nid: 1,
+    ndate: new Date(),
+    ntitle: "공지사항 테으스트",
+    ndesc: "테스트입니다.",
+    ncate: "공지사항",
+    nkind: 1,
+    nhit: 1,
+    images: ["/child/r1.png", "/child/r2.png"]
 }]

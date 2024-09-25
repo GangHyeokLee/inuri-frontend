@@ -1,14 +1,10 @@
-"use client"
-
-import {useState} from "react";
-import {Customer} from "@/type";
 import {Table, TableBody, TableHead, TableHeader, TableRow} from "@/components/ui/table";
 import PatronDetailDialog from "@/components/admin/patrons/PatronDetailDialog";
 import {MockPatron} from "@/mock";
 
 export default function Patrons() {
 
-    const [patrons, setPatrons] = useState<Customer[]>(MockPatron);
+    const patrons = [...MockPatron];
     return (
         <div className="w-full">
             <div className="bg-gray-100 text-center rounded p-4 mt-10">

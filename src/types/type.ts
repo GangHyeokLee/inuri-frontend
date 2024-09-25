@@ -1,14 +1,3 @@
-export interface News {
-    nid: number;
-    ndate: Date;
-    ntitle: string;
-    ndesc: string;
-    ncate: string;
-    nkind: number;
-    nhit: number;
-    images: string[];
-}
-
 export interface Customer {
     cid: number; // Optional since it's auto-generated
     cdate: Date; // Use Date for `LocalDateTime`
@@ -77,4 +66,15 @@ export const category={
     "6": "명예후원자",
     "7": "인재 채용",
     "8": "보도자료"
+}
+
+export interface News {
+    nid: number;
+    ndate: Date;
+    ntitle: string;
+    ndesc: string;
+    ncate: string;
+    nkind: number;
+    nhit: number;
+    images: string[];
 }
