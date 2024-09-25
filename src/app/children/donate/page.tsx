@@ -7,7 +7,6 @@ import {Button} from "@/components/ui/button";
 import {RadioGroup, RadioGroupItem} from "@/components/ui/radio-group";
 import {Customer} from "@/types/type";
 import {MockPatron} from "@/mock";
-import {useParams} from "next/navigation";
 import {RequestPayResponse} from "@/types/paymentType";
 
 // 유저정보 입력받기
@@ -65,7 +64,7 @@ export default function Donation() {
                 const {success, error_msg} = response;
                 if (success) {
                     alert("결제 성공");
-                }else{
+                } else {
                     alert(`결제 실패: ${error_msg}`);
                 }
 

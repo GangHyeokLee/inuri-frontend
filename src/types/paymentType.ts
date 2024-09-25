@@ -1,4 +1,4 @@
-export interface RequestPayAdditionalParams{
+export interface RequestPayAdditionalParams {
     digital?: boolean;
     /**
      * ### 가상계좌 입금기한
@@ -34,7 +34,7 @@ export interface Display {
     card_quota?: number[];
 }
 
-// TODO: 다시 확인 필요, 공식문서에서 페이지마다 다른 정보를 알려주고있음
+// 다시 확인 필요, 공식문서에서 페이지마다 다른 정보를 알려주고있음
 type PG =
     | "html5_inicis"
     | "inicis"
@@ -170,6 +170,7 @@ export interface RequestPayParams extends RequestPayAdditionalParams {
      * - JSON notation(string)으로 저장됩니다.
      * - 주문 건에 대해 부가정보를 저장할 공간이 필요할 때 사용합니다
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     custom_data?: Record<any, any>;
     /**
      * ### 면세금액
@@ -297,12 +298,12 @@ export interface RequestPayResponse extends RequestPayAdditionalResponse {
      * - 일부 PG사 또는 간편결제로 결제가 발생되지 않은 경우 해당 파라미터는 생략됩니다.
      */
     embb_pg_provider?:
-        | "naverpay"
-        | "kakaopay"
-        | "payco"
-        | "samsungpay"
-        | "ssgpay"
-        | "lpay";
+    | "naverpay"
+    | "kakaopay"
+    | "payco"
+    | "samsungpay"
+    | "ssgpay"
+    | "lpay";
     /**
      * ### PG사 거래번호
      * - PG사에서 거래당 고유하게 부여하는 거래번호입니다.

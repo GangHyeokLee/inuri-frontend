@@ -71,10 +71,11 @@ export default function Navbar() {
                     </NavigationMenu>
                     <div className="hidden lg:flex flex-grow bg-white items-center" id="navbarCollapse">
                         <div className="mx-auto flex gap-12 text-xl text-primary">
-                            <Link href="/children" className="nav-item nav-link text-gray-700 hover:text-primary">후원
-                                아동</Link>
+                            <Link href="/children" className="nav-item nav-link text-gray-700 hover:text-primary">
+                                후원 아동</Link>
                             <Link href="/news" className="nav-item nav-link text-gray-700 hover:text-primary">소식</Link>
-                            <Link href="/admin" className="nav-item nav-link text-gray-700 hover:text-primary">관리자</Link>
+                            <Link href="/admin"
+                                  className="nav-item nav-link text-gray-700 hover:text-primary">관리자</Link>
                         </div>
                         <div className="flex items-center m-3 ml-auto">
                             <a href="#" className="flex items-center">
