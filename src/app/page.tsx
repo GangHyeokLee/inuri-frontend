@@ -12,7 +12,7 @@ const carouselImages = [
 
 export default function Home() {
     return (
-        <div className="w-4/5 flex flex-col">
+        <div className="w-full flex flex-col">
             <div className="w-full p-5 bg-[url('/child/hero-img.jpg')] bg-cover bg-center ">
                 <div className="flex flex-col lg:flex-row gap-5 items-center">
                     <div className="flex-1 text-left w-full">

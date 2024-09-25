@@ -2,7 +2,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar";
 import React from "react";
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({children}: Readonly<{ children: React.ReactNode }>) {
     return (
         <html lang="en">
         <head>
@@ -13,10 +13,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         </head>
         <body>
         <header className="w-full flex justify-center">
-            <Navbar />
+            <Navbar/>
         </header>
         <main className="flex justify-center items-center w-full mt-48">
-            {children}
+            <div className="w-4/5">
+                {children}
+            </div>
         </main>
         </body>
         </html>

@@ -7,7 +7,7 @@ export const MockChildren: Child[] = [{
     chdate: new Date(),
     chdesc: "test",
     chgender: "male",
-    chimg: "1rtr",
+    chimg: "/child/r1.png",
     chlocation: "test",
     donations: [],
 },
@@ -18,7 +18,7 @@ export const MockChildren: Child[] = [{
         chdate: new Date(),
         chdesc: "test",
         chgender: "female",
-        chimg: "1rtr",
+        chimg: "/child/r2.png",
         chlocation: "test",
         donations: [],
     }];
@@ -30,10 +30,12 @@ export const MockPatron: Customer[] = [{
     answers: [],
     donation: [],
     enabled: true,
-    password: "testse",
     role: "etst",
     username: "testest",
     questions: [],
+    caddr: "tertst",
+    ctel: "010-0000-0000",
+    postcode: "12345"
 }]
 
 export const MockDonation: Donation[] = [{

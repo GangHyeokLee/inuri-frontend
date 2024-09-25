@@ -68,10 +68,10 @@ export default function Navbar() {
                     </NavigationMenu>
                     <div className="hidden lg:flex flex-grow bg-white items-center" id="navbarCollapse">
                         <div className="mx-auto flex gap-12 text-xl text-primary">
-                            <a href="/child_list" className="nav-item nav-link text-gray-700 hover:text-primary">후원
-                                아동</a>
-                            <a href="/news" className="nav-item nav-link text-gray-700 hover:text-primary">소식</a>
-                            <a href="/admin" className="nav-item nav-link text-gray-700 hover:text-primary">관리자</a>
+                            <Link href="/children" className="nav-item nav-link text-gray-700 hover:text-primary">후원
+                                아동</Link>
+                            <Link href="/news" className="nav-item nav-link text-gray-700 hover:text-primary">소식</Link>
+                            <Link href="/admin" className="nav-item nav-link text-gray-700 hover:text-primary">관리자</Link>
                         </div>
                         <div className="flex items-center m-3 ml-auto">
                             <a href="#" className="flex items-center">
@@ -88,7 +88,7 @@ export default function Navbar() {
 const components: { title: string; href: string; }[] = [
     {
         title: "후원 아동",
-        href: "/child_list",
+        href: "/children",
     },
     {
         title: "소식",

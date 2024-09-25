@@ -1,7 +1,7 @@
 "use client"
 
 import {useState} from "react";
-import {Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger} from "@/components/ui/dialog";
+import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger} from "@/components/ui/dialog";
 import {Input} from "@/components/ui/input";
 import {Label} from "@/components/ui/label";
 import {Button} from "@/components/ui/button";
@@ -85,9 +85,9 @@ export default function RegisterForm() {
                                    className="mt-1 block w-full rounded-md shadow-sm focus:border-mainTheme"/>
                         </div>
 
-                        <button type="submit"
+                        <Button type="submit"
                                 className="bg-mainTheme w-full py-2 rounded-lg text-white hover:bg-mainThemeHover">회원가입
-                        </button>
+                        </Button>
                     </form>
                 </div>
             </DialogContent>

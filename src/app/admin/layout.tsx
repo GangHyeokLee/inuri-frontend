@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Layout({children}: PropsWithChildren) {
 
     return (
-        <section className="py-5 flex w-4/5 mx-auto">
+        <section className="py-5 flex w-full mx-auto">
             <div className="xl:w-1/4 pe-4 pb-3 whitespace-nowrap">
                 <h3 className="text-mainTheme text-4xl font-extrabold">ADMIN</h3>
                 <div className="w-fit mt-5">
