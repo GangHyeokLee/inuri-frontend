@@ -11,16 +11,15 @@ export default function RootLayout({children}: Readonly<{ children: React.ReactN
                 rel="stylesheet"
                 href="https://unpkg.com/react-quill@1.3.3/dist/quill.snow.css"
             />
+            {/*Import API*/}
             <Script src="https://cdn.iamport.kr/v1/iamport.js"></Script>
         </head>
         <body>
         <header className="w-full flex justify-center">
             <Navbar/>
         </header>
-        <main className="flex justify-center items-center w-full mt-48">
-            <div className="w-4/5">
-                {children}
-            </div>
+        <main className="flex flex-col justify-center items-center w-full lg:mt-48 mt-20">
+            {children}
         </main>
         </body>
         </html>

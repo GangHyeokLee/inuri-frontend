@@ -7,9 +7,9 @@ export default async function ChildDetail({params}: { params: { id: string } }) 
     const child = MockChildren.filter((child) => child.chid === parseInt(params.id))[0];
 
     return (
-        <div className="container mx-auto py-3 flex flex-row gap-10 justify-between">
+        <div className="container mx-auto py-3 flex flex-row gap-10 justify-between w-4/5">
             <div className="w-1/2">
-                <img src={child.chimg || ""} className="w-3/4 h-auto rounded" alt="Image"/>
+                <img src={child.chimg || ""} className="w-full h-auto rounded" alt="Image"/>
             </div>
             <div className="flex flex-1 flex-col gap-5">
                 <div className="text-3xl font-bold mb-6">{child.chname}</div>

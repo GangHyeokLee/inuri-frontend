@@ -58,3 +58,8 @@ export const MockNews: News[] = [{
     nhit: 1,
     images: ["/child/r1.png", "/child/r2.png"]
 }]
+
+export const mockCategories = [
+    {name:"기업소식", link:"/news/info/2"},
+    {name:"후원금 사용내역", link:"/news/info/3"},
+]

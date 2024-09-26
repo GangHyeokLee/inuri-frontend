@@ -10,9 +10,12 @@ import {
 } from "@/components/ui/dialog";
 import {Button} from "@/components/ui/button";
 import {ChangeEvent, useState} from "react";
-import Postcode from "@/components/DaumAddress";
-import ReactQuill from "react-quill";
 import {Input} from "@/components/ui/input";
+import dynamic from "next/dynamic";
+
+const Postcode = dynamic(() => import("@/components/DaumAddress"), { ssr: false });
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+
 
 export default function AddChildDialog() {
 
@@ -51,7 +54,7 @@ export default function AddChildDialog() {
                 <form className="bg-white rounded h-full p-4 shadow" action="/child/add" method="post"
                       encType="multipart/form-data">
                     <div className="mb-4">
-                        <label htmlFor="inputEmail3" className="block text-gray-700 text-sm font-bold mb-2">이름</label>
+                        <label htmlFor="chname" className="block text-gray-700 text-sm font-bold mb-2">이름</label>
                         <Input
                             type="text"
                             name="chname"
@@ -66,25 +69,23 @@ export default function AddChildDialog() {
                         <div className="flex space-x-4">
                             <div className="form-check">
                                 <input
-                                    className="form-check-input"
                                     type="radio"
                                     id="genderMale"
                                     value="male"
                                     onChange={handleGenderChange}
                                     checked={gender === "male"}
                                 />
-                                <label className="form-check-label" htmlFor="genderMale">남성</label>
+                                <label htmlFor="genderMale">남성</label>
                             </div>
                             <div className="form-check">
                                 <input
-                                    className="form-check-input"
                                     type="radio"
                                     id="genderFemale"
                                     onChange={handleGenderChange}
                                     value="female"
                                     checked={gender === "female"}
                                 />
-                                <label className="form-check-label" htmlFor="genderFemale">여성</label>
+                                <label htmlFor="genderFemale">여성</label>
                             </div>
                         </div>
                     </div>

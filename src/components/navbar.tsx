@@ -19,7 +19,7 @@ import RegisterForm from "@/components/authen/RegisterForm";
 export default function Navbar() {
 
     return (
-        <nav className="fixed h-1/5 flex flex-col top-0 w-full z-50">
+        <nav className="fixed h-fit flex flex-col top-0 w-full z-50 bg-white">
             <div
                 className="hidden mx-auto lg:flex w-4/5 justify-center bg-mainTheme text-white p-2 rounded-tl-3xl rounded-bl-xl rounded-tr-xl rounded-br-3xl">
                 <div className="flex items-center space-x-2">
@@ -73,7 +73,7 @@ export default function Navbar() {
                         <div className="mx-auto flex gap-12 text-xl text-primary">
                             <Link href="/children" className="nav-item nav-link text-gray-700 hover:text-primary">
                                 후원 아동</Link>
-                            <Link href="/news" className="nav-item nav-link text-gray-700 hover:text-primary">소식</Link>
+                            <Link href="/news/info" className="nav-item nav-link text-gray-700 hover:text-primary">소식</Link>
                             <Link href="/admin"
                                   className="nav-item nav-link text-gray-700 hover:text-primary">관리자</Link>
                         </div>
@@ -96,7 +96,7 @@ const components: { title: string; href: string; }[] = [
     },
     {
         title: "소식",
-        href: "/news",
+        href: "/news/info",
     },
     {
         title: "관리자",

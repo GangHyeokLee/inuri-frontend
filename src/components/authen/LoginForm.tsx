@@ -1,11 +1,9 @@
 "use client"
 
 import {useState} from "react";
-import {Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger} from "@/components/ui/dialog";
+import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger} from "@/components/ui/dialog";
 import {Input} from "@/components/ui/input";
 import {Label} from "@/components/ui/label";
-import {Button} from "@/components/ui/button";
-import RegisterForm from "@/components/authen/RegisterForm";
 
 export default function LoginForm() {
     const [email, setEmail] = useState("");

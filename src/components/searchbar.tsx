@@ -18,14 +18,14 @@ export default function SearchBar({addr}: Props) {
     }
 
     return (
-        <>
-            <Input className="w-1/3 p-3 rounded-none rounded-l-xl"
+        <div className="flex w-full items-center">
+            <Input className="w-full p-3 rounded-none rounded-l-xl"
                    value={value}
                    onChange={(e) => setValue(e.target.value)}
-                   placeholder="keywords"/>
+                   placeholder="검색어를 입력하세요."/>
             <Button className="-text p-3 bg-gray-200 rounded-r-md" onClick={handleSearch}>
                 <FaSearch className="text-white text-xl"/>
             </Button>
-        </>
+        </div>
     )
 }

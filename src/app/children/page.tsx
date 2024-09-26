@@ -6,11 +6,10 @@ export default function ChildrenList() {
 
     const children = MockChildren;
     return (
-        <div className="flex flex-col gap-10 w-full">
-            <div className="flex w-full justify-end items-center">
-                <SearchBar addr={""}/>
+        <div className="flex flex-col gap-10 w-full mt-10">
+            <div className="flex w-full justify-end">
+                <div className={"w-1/3"}><SearchBar addr={""}/></div>
             </div>
-
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 {
                     children.map((child) => (
