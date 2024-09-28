@@ -16,10 +16,12 @@ export default function Home() {
         <div className="w-full flex flex-col">
             <div className="w-full p-5 bg-[url('/child/hero-img.jpg')] bg-cover bg-center ">
                 <div className="flex flex-col lg:flex-row gap-5 items-center">
-                    <div className="flex-1 text-left w-full">
-                        <h4 className="mb-3 text-xl font-bold text-[#ffb524]">아동후원, 아이누리와 함께하세요.</h4>
-                        <h1 className="mb-3 text-10xl font-extrabold md:text-5xl text-mainTheme">당신의 후원이</h1>
-                        <h1 className="text-10xl font-extrabold md:text-5xl text-mainTheme">세상을 바꿉니다.</h1>
+                    <div className="flex flex-1 justify-center">
+                        <div className="text-left w-fit mx-auto">
+                            <h4 className="mb-3 text-xl font-bold text-[#ffb524]">아동후원, 아이누리와 함께하세요.</h4>
+                            <h1 className="mb-3 text-10xl font-extrabold md:text-5xl text-mainTheme">당신의 후원이</h1>
+                            <h1 className="text-10xl font-extrabold md:text-5xl text-mainTheme">세상을 바꿉니다.</h1>
+                        </div>
                     </div>
                     <div className="flex-1">
                         <Carousel className="w-full max-w-2xl"

@@ -27,6 +27,7 @@ export interface Child {
     chgender: string;
     chlocation: string;
     chdesc: string;
+    chemail?:string;
     donations: Donation[]; // Assuming Donation is another interface
 }
 
@@ -36,8 +37,8 @@ export interface Donation {
     donationMethod: string;
     donationAmount: number;
     donationPeriod: number;
-    child: Child;             // Assuming Child is another interface
-    customer: Customer;       // Assuming Customer is another interface
+    child: string;             // Assuming Child is another interface
+    customer: string;       // Assuming Customer is another interface
 }
 
 export interface Answer {

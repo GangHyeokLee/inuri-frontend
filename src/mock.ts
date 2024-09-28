@@ -20,7 +20,67 @@ export const MockChildren: Child[] = [{
         chgender: "female",
         chimg: "/child/r2.png",
         chlocation: "test",
-        donations: [],
+        donations: [
+            {
+                did: 1,
+                ddate: new Date(),
+                child: "tset",
+                donationAmount: 12345,
+                donationMethod:"일시 후원",
+                donationPeriod:0,
+                customer: "test",
+
+            },
+            {
+                did: 2,
+                ddate: new Date(),
+                child: "tset",
+                donationAmount: 12345,
+                donationMethod:"일시 후원",
+                donationPeriod:0,
+                customer: "test",
+
+            },{
+                did: 3,
+                ddate: new Date(),
+                child: "tset",
+                donationAmount: 12345,
+                donationMethod:"일시 후원",
+                donationPeriod:0,
+                customer: "test",
+
+            },
+            {
+                did: 4,
+                ddate: new Date(),
+                child: "tset",
+                donationAmount: 12345,
+                donationMethod:"일시 후원",
+                donationPeriod:0,
+                customer: "test",
+
+            },
+            {
+                did: 5,
+                ddate: new Date(),
+                child: "tset",
+                donationAmount: 12345,
+                donationMethod:"일시 후원",
+                donationPeriod:0,
+                customer: "test",
+
+            },
+            {
+                did: 6,
+                ddate: new Date(),
+                child: "tset",
+                donationAmount: 12345,
+                donationMethod:"일시 후원",
+                donationPeriod:0,
+                customer: "test",
+
+            }
+        ],
     }];
 
 export const MockPatron: Customer[] = [{
@@ -39,8 +99,8 @@ export const MockPatron: Customer[] = [{
 }]
 
 export const MockDonation: Donation[] = [{
-    child: MockChildren[0],
-    customer: MockPatron[0],
+    child: "test",
+    customer: "test",
     did: 1,
     ddate: new Date(),
     donationAmount: 100000,
